@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ms.Thuỷ's English Test System</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 850px; margin: 30px auto; padding: 20px; background-color: #f4f7f9; color: #333; }
+        .container { background: white; padding: 35px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 5px; text-transform: uppercase; }
+        .user-info { text-align: center; color: #7f8c8d; margin-bottom: 30px; font-weight: 500; }
+        h2 { background: #34495e; color: white; padding: 12px; border-radius: 8px; font-size: 1.1em; margin-top: 35px; }
+        .question { margin-bottom: 20px; padding: 20px; border-radius: 10px; background: #fff; border: 1px solid #e1e8ed; transition: 0.3s; }
+        .options { margin-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        input[type="text"] { padding: 10px; border: 2px solid #bdc3c7; border-radius: 6px; width: 280px; outline: none; font-size: 15px; }
+        .write-sentence { width: 95% !important; }
+        
+        .correct { border-left: 10px solid #2ecc71; background-color: #f0fff4 !important; }
+        .incorrect { border-left: 10px solid #e74c3c; background-color: #fff5f5 !important; }
+
+        #scoreBox { 
+            display: none; position: sticky; top: 10px; z-index: 1000;
+            background: #fff; padding: 20px; border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2); text-align: center;
+            border: 3px solid #3498db; margin-bottom: 25px;
+        }
+        #totalScore { font-size: 2.5em; font-weight: bold; color: #d35400; }
+        
+        .btn-container { text-align: center; margin-top: 40px; }
+        #submitBtn { padding: 16px 70px; background: #27ae60; color: white; border: none; border-radius: 50px; font-size: 1.2em; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        #submitBtn:hover { background: #1e8449; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="scoreBox">
+        <h3>BẢNG ĐIỂM CỦA EM</h3>
+        <div id="totalScore">0/30</div>
+        <p id="feedbackMsg" style="font-weight:bold; color:#2c3e50;"></p>
+        <button onclick="location.reload()" style="background:#bdc3c7; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">Làm lại bài</button>
+    </div>
+
+    <h1>MINI-TEST: UNIT 13 & PRESENT SIMPLE</h1>
+    <div class="user-info">Hệ thống nộp bài tự động - Teacher: Farra Thuỷ</div>
+
+    <form id="quizForm">
+        <h2>PART 1: VOCABULARY (6 Questions)</h2>
+        <div class="question" id="q0"><p>1. The workers __________ to be paid more money.</p>
+            <div class="options">
+                <label><input type="radio" name="r0" value="demanded"> demanded</label>
+                <label><input type="radio" name="r0" value="contained"> contained</label>
+            </div>
+        </div>
+        <div class="question" id="q1"><p>2. A __________ person always does the right things.</p>
+            <div class="options">
+                <label><input type="radio" name="r1" value="responsible"> responsible</label>
+                <label><input type="radio" name="r1" value="equal"> equal</label>
+            </div>
+        </div>
+        <div class="question" id="q2"><p>3. Wheat is a __________ that farmers grow.</p>
+            <div class="options">
+                <label><input type="radio" name="r2" value="crop"> crop</label>
+                <label><input type="radio" name="r2" value="structure"> structure</label>
+            </div>
+        </div>
+        <div class="question" id="q3"><p>4. To __________ something is to set it on fire.</p>
+            <div class="options">
+                <label><input type="radio" name="r3" value="burn"> burn</label>
+                <label><input type="radio" name="r3" value="feed"> feed</label>
+            </div>
+        </div>
+        <div class="question" id="q4"><p>5. Both students are __________ in age.</p>
+            <div class="options">
+                <label><input type="radio" name="r4" value="equal"> equal</label>
+                <label><input type="radio" name="r4" value="correct"> correct</label>
+            </div>
+        </div>
+        <div class="question" id="q5"><p>6. The pyramids are a wonderful __________ to see.</p>
+            <div class="options">
+                <label><input type="radio" name="r5" value="sight"> sight</label>
+                <label><input type="radio" name="r5" value="blood"> blood</label>
+            </div>
+        </div>
+
+        <h2>PART 2: GRAMMAR FILL-IN (14 Questions)</h2>
+        <div class="question" id="q6"><p>7. The Earth (revolve) <input type="text" data-ans="revolves"> around the Sun.</p></div>
+        <div class="question" id="q7"><p>8. Technology (play) <input type="text" data-ans="plays"> a vital role.</p></div>
+        <div class="question" id="q8"><p>9. Water (expand) <input type="text" data-ans="expands"> when it freezes.</p></div>
+        <div class="question" id="q9"><p>10. Vegetarians (not/eat) <input type="text" data-ans="don't eat"> meat.</p></div>
+        <div class="question" id="q10"><p>11. My professor (frequently/publish) <input type="text" data-ans="frequently publishes"> research.</p></div>
+        <div class="question" id="q11"><p>12. <input type="text" style="width:70px" data-ans="Does"> your sister work at the hospital?</p></div>
+        <div class="question" id="q12"><p>13. How often <input type="text" style="width:70px" data-ans="do"> they go to the library?</p></div>
+        <div class="question" id="q13"><p>14. Physics (be) <input type="text" data-ans="is"> a difficult subject.</p></div>
+        <div class="question" id="q14"><p>15. She (always/arrive) <input type="text" data-ans="always arrives"> on time.</p></div>
+        <div class="question" id="q15"><p>16. Where <input type="text" style="width:70px" data-ans="do"> your parents live?</p></div>
+        <div class="question" id="q16"><p>17. The moon (reflect) <input type="text" data-ans="reflects"> sunlight.</p></div>
+        <div class="question" id="q17"><p>18. Good teamwork (ensure) <input type="text" data-ans="ensures"> success.</p></div>
+        <div class="question" id="q18"><p>19. <input type="text" style="width:70px" data-ans="Does"> it snow in Vietnam?</p></div>
+        <div class="question" id="q19"><p>20. I (not/usually/drink) <input type="text" data-ans="don't usually drink"> coffee.</p></div>
+
+        <h2>PART 3: REWRITING (10 Questions)</h2>
+        <div class="question" id="q20"><p>21. I am a very skillful piano player. -> <input type="text" class="write-sentence" data-ans="I play the piano very skillfully"></p></div>
+        <div class="question" id="q21"><p>22. It is not her habit to stay up late. -> <input type="text" class="write-sentence" data-ans="She doesn't stay up late"></p></div>
+        <div class="question" id="q22"><p>23. What is your job title? -> <input type="text" class="write-sentence" data-ans="What do you do"></p></div>
+        <div class="question" id="q23"><p>24. They are never late for meetings. -> <input type="text" class="write-sentence" data-ans="They always arrive on time for meetings"></p></div>
+        <div class="question" id="q24"><p>25. My sister loves stray animals. -> <input type="text" class="write-sentence" data-ans="My sister has a lot of affection for stray animals"></p></div>
+        <div class="question" id="q25"><p>26. Is playing chess exciting for you? -> <input type="text" class="write-sentence" data-ans="Do you find playing chess exciting"></p></div>
+        <div class="question" id="q26"><p>27. He prefers movies to news. -> <input type="text" class="write-sentence" data-ans="He prefers watching movies to reading news"></p></div>
+        <div class="question" id="q27"><p>28. She lacks time for breakfast. -> <input type="text" class="write-sentence" data-ans="She doesn't have time for breakfast"></p></div>
+        <div class="question" id="q28"><p>29. On weekends, we visit grandparents. -> <input type="text" class="write-sentence" data-ans="We visit our grandparents on weekends"></p></div>
+        <div class="question" id="q29"><p>30. I always shower after exercising. -> <input type="text" class="write-sentence" data-ans="It is my daily routine to take a shower after exercising"></p></div>
+
+        <div class="btn-container">
+            <button type="button" id="submitBtn" onclick="submitTest()">NỘP BÀI & CHẤM ĐIỂM</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function submitTest() {
+        let name = prompt("Nhập Họ và Tên của em:");
+        if (!name) return alert("Em cần nhập tên mới có thể nộp bài!");
+
+        let score = 0;
+        const total = 30;
+
+        // 1. Chấm Trắc nghiệm
+        const mcAns = ["demanded", "responsible", "crop", "burn", "equal", "sight"];
+        for (let i = 0; i < 6; i++) {
+            const selected = document.querySelector(`input[name="r${i}"]:checked`);
+            const div = document.getElementById('q' + i);
+            if (selected && selected.value === mcAns[i]) {
+                score++;
+                div.className = "question correct";
+            } else {
+                div.className = "question incorrect";
+            }
+        }
+
+        // 2. Chấm Điền từ & Viết câu
+        const inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => {
+            const userAns = input.value.trim().toLowerCase().replace(/[.,?!]/g, "");
+            const realAns = input.getAttribute('data-ans').toLowerCase().replace(/[.,?!]/g, "");
+            const div = input.closest('.question');
+            if (userAns === realAns) {
+                score++;
+                div.className = "question correct";
+            } else {
+                div.className = "question incorrect";
+            }
+        });
+
+        // HIỂN THỊ KẾT QUẢ
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        document.getElementById('scoreBox').style.display = 'block';
+        document.getElementById('totalScore').innerText = score + "/" + total;
+        document.getElementById('feedbackMsg').innerText = "Chào " + name + ", bài làm đã được ghi nhận!";
+
+        // GỬI ĐẾN GOOGLE SHEETS
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbysA-XinPhqshFaETfPP1_f23hPCnx5Iho3NLpfmmOCzZ1aRXs2N6ofXs7-RFUxHsnTlg/exec';
+        
+        fetch(scriptURL, {
+            method: 'POST',
+            mode: 'no-cors',
+            cache: 'no-cache',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ name: name, score: score + "/30" })
+        })
+        .then(() => alert("Success: Bài của em đã được gửi về máy giáo viên!"))
+        .catch(err => alert("Error: Không thể gửi bài. Hãy kiểm tra mạng!"));
+    }
+</script>
+
+</body>
+</html>
