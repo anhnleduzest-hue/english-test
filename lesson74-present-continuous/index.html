@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Success Mastery - Linh Anh Class</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f4f8; color: #333; line-height: 1.6; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; font-size: 2em; margin-bottom: 5px; }
+        .main-banner { width: 100%; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        
+        .section { margin-top: 30px; padding-top: 15px; border-top: 2px solid #edf2f7; }
+        h3 { background: #fbbf24; color: #92400e; padding: 8px 18px; border-radius: 50px; display: inline-block; font-size: 1em; margin-bottom: 15px; }
+        .question { margin-bottom: 20px; padding: 15px; border-radius: 10px; border-bottom: 1px dashed #cbd5e1; background: #fff; }
+        
+        /* Trắc nghiệm */
+        .options { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+        .option-item { display: flex; align-items: center; cursor: pointer; padding: 8px; border-radius: 6px; transition: 0.2s; }
+        .option-item:hover { background: #f1f5f9; }
+        .option-item input { margin-right: 12px; transform: scale(1.2); cursor: pointer; }
+
+        /* Điền từ */
+        input[type="text"] { border: none; border-bottom: 2px solid #94a3b8; padding: 5px; width: 180px; font-weight: bold; text-align: center; outline: none; background: transparent; transition: 0.3s; }
+        input[type="text"]:focus { border-bottom: 2px solid #4f46e5; color: #4f46e5; }
+        
+        .feedback { font-weight: bold; margin-left: 10px; font-size: 0.9em; }
+        .correct { color: #10b981; }
+        .wrong { color: #ef4444; }
+
+        .btn-submit { display: block; width: 100%; background: #4f46e5; color: white; padding: 20px; border: none; border-radius: 12px; font-size: 1.3em; font-weight: bold; cursor: pointer; margin-top: 40px; transition: 0.3s; }
+        .btn-submit:hover { background: #3730a3; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3); }
+        #result-summary { margin-top: 25px; padding: 25px; border-radius: 15px; text-align: center; font-size: 1.5em; font-weight: bold; display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>MINITEST: ENGLISH 6</h1>
+        
+        <img src="https://github.com/anhnleduzest-hue/T3-english-minitest/blob/main/image.png?raw=true" class="main-banner" alt="Banner bài tập">
+        
+        <p style="text-align: center;">Ms.Thuỷ's English Class</p>
+    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; margin-bottom: 30px; border-left: 5px solid #4f46e5;">
+        <label><b>Student Name:</b></label>
+        <input type="text" id="studentName" style="width: 250px; text-align: left; border-bottom: 2px solid #4f46e5;" placeholder="Enter your name...">
+    </div>
+
+    <form id="quizForm">
+        <div class="section">
+            <h3>PART 1: PHONETICS - ED PRONUNCIATION</h3>
+            <div class="question" data-type="radio" data-ans="D">1. A. helped B. looked C. watched D. played <div class="options"><label class="option-item"><input type="radio" name="p1" value="A"> A</label><label class="option-item"><input type="radio" name="p1" value="B"> B</label><label class="option-item"><input type="radio" name="p1" value="C"> C</label><label class="option-item"><input type="radio" name="p1" value="D"> D</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="D">2. A. visited B. needed C. painted D. arrived <div class="options"><label class="option-item"><input type="radio" name="p2" value="A"> A</label><label class="option-item"><input type="radio" name="p2" value="B"> B</label><label class="option-item"><input type="radio" name="p2" value="C"> C</label><label class="option-item"><input type="radio" name="p2" value="D"> D</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="B">3. A. walked B. used C. washed D. reduced <div class="options"><label class="option-item"><input type="radio" name="p3" value="A"> A</label><label class="option-item"><input type="radio" name="p3" value="B"> B</label><label class="option-item"><input type="radio" name="p3" value="C"> C</label><label class="option-item"><input type="radio" name="p3" value="D"> D</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="C">4. A. stayed B. moved C. started D. recycled <div class="options"><label class="option-item"><input type="radio" name="p4" value="A"> A</label><label class="option-item"><input type="radio" name="p4" value="B"> B</label><label class="option-item"><input type="radio" name="p4" value="C"> C</label><label class="option-item"><input type="radio" name="p4" value="D"> D</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="A">5. A. called B. decorated C. decided D. planted <div class="options"><label class="option-item"><input type="radio" name="p5" value="A"> A</label><label class="option-item"><input type="radio" name="p5" value="B"> B</label><label class="option-item"><input type="radio" name="p5" value="C"> C</label><label class="option-item"><input type="radio" name="p5" value="D"> D</label></div><span class="feedback"></span></div>
+        </div>
+
+        <div class="section">
+            <h3>PART 2: VOCABULARY FOCUS</h3>
+            <div class="question" data-type="radio" data-ans="B">6. The football __________ is very happy... <div class="options"><label class="option-item"><input type="radio" name="v1" value="A"> A. poet</label><label class="option-item"><input type="radio" name="v1" value="B"> B. coach</label><label class="option-item"><input type="radio" name="v1" value="C"> C. novel</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="C">7. Modern __________ helps us recycle... <div class="options"><label class="option-item"><input type="radio" name="v2" value="A"> A. mail</label><label class="option-item"><input type="radio" name="v2" value="C"> C. technology</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="A">8. This movie has a very emotional __________... <div class="options"><label class="option-item"><input type="radio" name="v3" value="A"> A. scene</label><label class="option-item"><input type="radio" name="v3" value="B"> B. exam</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="C">9. I need to __________ this document... <div class="options"><label class="option-item"><input type="radio" name="v4" value="B"> B. control</label><label class="option-item"><input type="radio" name="v4" value="C"> C. print</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="C">10. Don't be __________! You cannot drive... <div class="options"><label class="option-item"><input type="radio" name="v5" value="B"> B. direct</label><label class="option-item"><input type="radio" name="v5" value="C"> C. silly</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="A">11. My brother is reading a famous __________... <div class="options"><label class="option-item"><input type="radio" name="v6" value="A"> A. novel</label><label class="option-item"><input type="radio" name="v6" value="B"> B. poet</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="B">12. Please give me a brief __________ of the thief... <div class="options"><label class="option-item"><input type="radio" name="v7" value="A"> A. example</label><label class="option-item"><input type="radio" name="v7" value="B"> B. description</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="C">13. There is a speed __________ of 40 km/h... <div class="options"><label class="option-item"><input type="radio" name="v8" value="B"> B. scene</label><label class="option-item"><input type="radio" name="v8" value="C"> C. limit</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="B">14. The __________ people are very friendly... <div class="options"><label class="option-item"><input type="radio" name="v9" value="A"> A. magical</label><label class="option-item"><input type="radio" name="v9" value="B"> B. local</label></div><span class="feedback"></span></div>
+            <div class="question" data-type="radio" data-ans="C">15. He __________ from a bad cold... <div class="options"><label class="option-item"><input type="radio" name="v10" value="B"> B. controls</label><label class="option-item"><input type="radio" name="v10" value="C"> C. suffers</label></div><span class="feedback"></span></div>
+        </div>
+
+        <div class="section">
+            <h3>PART 3: PRESENT SIMPLE & CONTINUOUS</h3>
+            <div class="question">16. My father (usually / control) <input type="text" data-ans="usually controls"> the remote. <span class="feedback"></span></div>
+            <div class="question">17. Look! The teacher (write) <input type="text" data-ans="is writing"> the outline. <span class="feedback"></span></div>
+            <div class="question">18. (you / study) <input type="text" data-ans="Are you studying"> for your exam at the moment? <span class="feedback"></span></div>
+            <div class="question">19. The local store (not / open) <input type="text" data-ans="doesn't open"> on Sundays. <span class="feedback"></span></div>
+            <div class="question">20. Listen! Someone (cry) <input type="text" data-ans="is crying"> in the next room. <span class="feedback"></span></div>
+            <div class="question">21. We (always / print) <input type="text" data-ans="always print"> the description. <span class="feedback"></span></div>
+            <div class="question">22. (the poet / often / write) <input type="text" data-ans="Does the poet often write"> about nature? <span class="feedback"></span></div>
+            <div class="question">23. I (not / wear) <input type="text" data-ans="am not wearing"> my glasses today. <span class="feedback"></span></div>
+            <div class="question">24. Technology (change) <input type="text" data-ans="changes"> very fast every year. <span class="feedback"></span></div>
+            <div class="question">25. My mom (not / usually / buy) <input type="text" data-ans="doesn't usually buy"> at the market. <span class="feedback"></span></div>
+            <div class="question">26. Why (the coach / shout) <input type="text" data-ans="is the coach shouting"> right now? <span class="feedback"></span></div>
+            <div class="question">27. Computers (help) <input type="text" data-ans="help"> us to work more effectively. <span class="feedback"></span></div>
+            <div class="question">28. They (mail) <input type="text" data-ans="are mailing"> a gift to grandparents. <span class="feedback"></span></div>
+            <div class="question">29. Which novel <input type="text" data-ans="are you reading"> (you / read) right now? <span class="feedback"></span></div>
+            <div class="question">30. The scientist (not / control) <input type="text" data-ans="is not controlling"> the robot today. <span class="feedback"></span></div>
+        </div>
+
+        <div class="section">
+            <h3>PART 4: MIXED COMPLEX SENTENCES</h3>
+            <div class="question">31. Although she (usually / read) <input type="text" data-ans="usually reads">, she (read) <input type="text" data-ans="is reading"> a comic today. <span class="feedback"></span></div>
+            <div class="question">32. Because it (rain) <input type="text" data-ans="is raining"> right now, we (not / go) <input type="text" data-ans="are not going">. <span class="feedback"></span></div>
+            <div class="question">33. Listen! Coach (talk) <input type="text" data-ans="is talking"> while they (usually / listen) <input type="text" data-ans="usually listen">. <span class="feedback"></span></div>
+            <div class="question">34. Even though tech (improve) <input type="text" data-ans="improves">, I still (prefer) <input type="text" data-ans="prefer"> books. <span class="feedback"></span></div>
+            <div class="question">35. I (write) <input type="text" data-ans="am writing"> now because I (need) <input type="text" data-ans="need"> help. <span class="feedback"></span></div>
+            <div class="question">36. Whenever I (see) <input type="text" data-ans="see"> this scene, I (always / feel) <input type="text" data-ans="always feel"> happy. <span class="feedback"></span></div>
+            <div class="question">37. Because printer (not / work) <input type="text" data-ans="is not working">, I (cannot / print) <input type="text" data-ans="cannot print">. <span class="feedback"></span></div>
+            <div class="question">38. Look! Robot (clean) <input type="text" data-ans="is cleaning">, although it (not / do) <input type="text" data-ans="doesn't do"> it usually. <span class="feedback"></span></div>
+            <div class="question">39. (you / work) <input type="text" data-ans="Are you working"> now, or (you / always / be) <input type="text" data-ans="are you always"> lazy? <span class="feedback"></span></div>
+            <div class="question">40. My sister (suffer) <input type="text" data-ans="is suffering"> today, so she (stay) <input type="text" data-ans="is staying"> home. <span class="feedback"></span></div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="submitQuiz()">SUBMIT ALL ANSWERS</button>
+    </form>
+
+    <div id="result-summary"></div>
+</div>
+
+<script>
+    function submitQuiz() {
+        const name = document.getElementById('studentName').value;
+        if (!name) { alert("Please enter your name!"); return; }
+
+        let score = 0, total = 0, wrongDetails = [];
+
+        // Radio Questions
+        document.querySelectorAll('.question[data-type="radio"]').forEach(q => {
+            total++;
+            const correctAns = q.getAttribute('data-ans');
+            const selected = q.querySelector('input[type="radio"]:checked');
+            const feedback = q.querySelector('.feedback');
+            if (selected && selected.value === correctAns) {
+                score++; feedback.innerHTML = " ✓"; feedback.className = "feedback correct";
+            } else {
+                feedback.innerHTML = ` ✗ (${correctAns})`; feedback.className = "feedback wrong";
+                wrongDetails.push(`Q${total}: ${selected ? selected.value : 'None'}`);
+            }
+        });
+
+        // Text Questions
+        document.querySelectorAll('input[type="text"]:not(#studentName)').forEach((input, i) => {
+            total++;
+            const userAnswer = input.value.trim().toLowerCase().replace(/[.?]/g, "");
+            const correctAnswer = input.getAttribute('data-ans').toLowerCase().replace(/[.?]/g, "");
+            const feedback = input.nextElementSibling;
+            if (userAnswer === correctAnswer) {
+                score++; feedback.innerHTML = " ✓"; feedback.className = "feedback correct";
+            } else {
+                feedback.innerHTML = ` ✗ (${input.getAttribute('data-ans')})`; feedback.className = "feedback wrong";
+                wrongDetails.push(`Fill ${i+1}: ${userAnswer || 'Empty'}`);
+            }
+        });
+
+        const res = document.getElementById('result-summary');
+        res.style.display = "block";
+        res.innerHTML = `Great job ${name}! Your score is ${score}/${total}`;
+        res.style.backgroundColor = score > total/2 ? "#d1fae5" : "#fee2e2";
+
+        sendToSheet(name, `${score}/${total}`, wrongDetails.join(", "));
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function sendToSheet(n, s, w) {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz0MYQWO8wEheSqRWOvyIXaEfPHAQxQLnaw930_oHM4duktq-2B3gsEvkwgLZ2C1GqW/exec';
+        const p = new URLSearchParams({ name: n, score: s, wrongs: w, time: new Date().toLocaleString() });
+        fetch(scriptURL, { method: 'POST', body: p, mode: 'no-cors' })
+        .then(() => alert("Results saved to teacher's sheet!"));
+    }
+</script>
+</body>
+</html>
