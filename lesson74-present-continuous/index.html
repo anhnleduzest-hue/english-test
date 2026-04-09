@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDUZEST GLOBAL - CLASS T1.11</title>
-    <style>
+ <style>
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f4f8; color: #333; line-height: 1.6; padding: 20px; }
         .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         h1 { color: #2c3e50; text-align: center; font-size: 2em; margin-bottom: 5px; }
-        .main-banner { width: 100%; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .main-banner { width: 100%; border-radius: 15px; margin-bottom: 25px; }
         
         .section { margin-top: 30px; padding-top: 15px; border-top: 2px solid #edf2f7; }
         h3 { background: #fbbf24; color: #92400e; padding: 8px 18px; border-radius: 50px; display: inline-block; font-size: 1em; margin-bottom: 15px; }
-        .question { margin-bottom: 20px; padding: 15px; border-radius: 10px; border-bottom: 1px dashed #cbd5e1; background: #fff; }
         
-        /* Trắc nghiệm */
-        .options { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
-        .option-item { display: flex; align-items: center; cursor: pointer; padding: 8px; border-radius: 6px; transition: 0.2s; }
-        .option-item:hover { background: #f1f5f9; }
+        /* Giao diện Trắc nghiệm mới */
+        .question { margin-bottom: 25px; padding: 15px; border-radius: 10px; border-bottom: 1px dashed #cbd5e1; background: #fff; }
+        .options-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+        @media (max-width: 600px) { .options-grid { grid-template-columns: 1fr; } }
+        
+        .option-item { border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; }
+        .option-item:hover { background-color: #f1f5f9; border-color: #4f46e5; }
         .option-item input { margin-right: 12px; transform: scale(1.2); cursor: pointer; }
 
-        /* Điền từ */
-        input[type="text"] { border: none; border-bottom: 2px solid #94a3b8; padding: 5px; width: 180px; font-weight: bold; text-align: center; outline: none; background: transparent; transition: 0.3s; }
+        /* Giao diện Điền từ */
+        input[type="text"] { border: none; border-bottom: 2px solid #94a3b8; padding: 5px; width: 180px; font-weight: bold; text-align: center; outline: none; background: transparent; }
         input[type="text"]:focus { border-bottom: 2px solid #4f46e5; color: #4f46e5; }
         
         .feedback { font-weight: bold; margin-left: 10px; font-size: 0.9em; }
@@ -46,14 +48,64 @@
         <input type="text" id="studentName" style="width: 250px; text-align: left; border-bottom: 2px solid #4f46e5;" placeholder="Enter your name...">
     </div>
 
-    <form id="quizForm">
+  <form id="quizForm">
         <div class="section">
             <h3>PART 1: PHONETICS - ED PRONUNCIATION</h3>
-            <div class="question" data-type="radio" data-ans="D">1. A. helped B. looked C. watched D. played <div class="options"><label class="option-item"><input type="radio" name="p1" value="A"> A</label><label class="option-item"><input type="radio" name="p1" value="B"> B</label><label class="option-item"><input type="radio" name="p1" value="C"> C</label><label class="option-item"><input type="radio" name="p1" value="D"> D</label></div><span class="feedback"></span></div>
-            <div class="question" data-type="radio" data-ans="D">2. A. visited B. needed C. painted D. arrived <div class="options"><label class="option-item"><input type="radio" name="p2" value="A"> A</label><label class="option-item"><input type="radio" name="p2" value="B"> B</label><label class="option-item"><input type="radio" name="p2" value="C"> C</label><label class="option-item"><input type="radio" name="p2" value="D"> D</label></div><span class="feedback"></span></div>
-            <div class="question" data-type="radio" data-ans="B">3. A. walked B. used C. washed D. reduced <div class="options"><label class="option-item"><input type="radio" name="p3" value="A"> A</label><label class="option-item"><input type="radio" name="p3" value="B"> B</label><label class="option-item"><input type="radio" name="p3" value="C"> C</label><label class="option-item"><input type="radio" name="p3" value="D"> D</label></div><span class="feedback"></span></div>
-            <div class="question" data-type="radio" data-ans="C">4. A. stayed B. moved C. started D. recycled <div class="options"><label class="option-item"><input type="radio" name="p4" value="A"> A</label><label class="option-item"><input type="radio" name="p4" value="B"> B</label><label class="option-item"><input type="radio" name="p4" value="C"> C</label><label class="option-item"><input type="radio" name="p4" value="D"> D</label></div><span class="feedback"></span></div>
-            <div class="question" data-type="radio" data-ans="A">5. A. called B. decorated C. decided D. planted <div class="options"><label class="option-item"><input type="radio" name="p5" value="A"> A</label><label class="option-item"><input type="radio" name="p5" value="B"> B</label><label class="option-item"><input type="radio" name="p5" value="C"> C</label><label class="option-item"><input type="radio" name="p5" value="D"> D</label></div><span class="feedback"></span></div>
+            
+            <div class="question" data-type="radio" data-ans="D">
+                1. Choose the word with different -ed pronunciation:
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="p1" value="A"> A. helped</label>
+                    <label class="option-item"><input type="radio" name="p1" value="B"> B. looked</label>
+                    <label class="option-item"><input type="radio" name="p1" value="C"> C. watched</label>
+                    <label class="option-item"><input type="radio" name="p1" value="D"> D. played</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="D">
+                2. Choose the word with different -ed pronunciation:
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="p2" value="A"> A. visited</label>
+                    <label class="option-item"><input type="radio" name="p2" value="B"> B. needed</label>
+                    <label class="option-item"><input type="radio" name="p2" value="C"> C. painted</label>
+                    <label class="option-item"><input type="radio" name="p2" value="D"> D. arrived</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="B">
+                3. Choose the word with different -ed pronunciation:
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="p3" value="A"> A. walked</label>
+                    <label class="option-item"><input type="radio" name="p3" value="B"> B. used</label>
+                    <label class="option-item"><input type="radio" name="p3" value="C"> C. washed</label>
+                    <label class="option-item"><input type="radio" name="p3" value="D"> D. reduced</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="C">
+                4. Choose the word with different -ed pronunciation:
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="p4" value="A"> A. stayed</label>
+                    <label class="option-item"><input type="radio" name="p4" value="B"> B. moved</label>
+                    <label class="option-item"><input type="radio" name="p4" value="C"> C. started</label>
+                    <label class="option-item"><input type="radio" name="p4" value="D"> D. recycled</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="A">
+                5. Choose the word with different -ed pronunciation:
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="p5" value="A"> A. called</label>
+                    <label class="option-item"><input type="radio" name="p5" value="B"> B. decorated</label>
+                    <label class="option-item"><input type="radio" name="p5" value="C"> C. decided</label>
+                    <label class="option-item"><input type="radio" name="p5" value="D"> D. planted</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
         </div>
 
         <div class="section">
