@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Simple Mastery - Class T1 EduZest</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f1f5f9; color: #1e293b; line-height: 1.6; padding: 20px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { color: #1e293b; text-align: center; font-size: 2em; margin-bottom: 5px; text-transform: uppercase; }
+        .main-banner { width: 100%; border-radius: 15px; margin-bottom: 25px; }
+        
+        .section { margin-top: 40px; border-top: 2px solid #e2e8f0; padding-top: 20px; }
+        h3 { background: #4f46e5; color: white; padding: 8px 25px; border-radius: 50px; display: inline-block; font-size: 1em; margin-bottom: 20px; }
+        
+        .question { margin-bottom: 25px; padding: 15px; border-radius: 12px; background: #fff; border-bottom: 1px dashed #cbd5e1; }
+        
+        /* Trắc nghiệm dàn 2 cột */
+        .options-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 10px; }
+        @media (max-width: 600px) { .options-grid { grid-template-columns: 1fr; } }
+        
+        .option-item { border: 1.5px solid #e2e8f0; padding: 10px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; transition: 0.2s; }
+        .option-item:hover { background-color: #f8fafc; border-color: #4f46e5; }
+        .option-item input { margin-right: 12px; transform: scale(1.1); cursor: pointer; }
+
+        /* Ô điền từ */
+        input[type="text"] { border: none; border-bottom: 2px solid #94a3b8; padding: 4px 8px; font-weight: bold; outline: none; background: transparent; color: #4f46e5; transition: 0.3s; }
+        input[type="text"]:focus { border-bottom: 2px solid #4f46e5; }
+        
+        .feedback { font-weight: bold; margin-left: 10px; font-size: 0.9em; }
+        .correct { color: #10b981; }
+        .wrong { color: #ef4444; }
+
+        .btn-submit { display: block; width: 100%; background: #4f46e5; color: white; padding: 20px; border: none; border-radius: 15px; font-size: 1.2em; font-weight: bold; cursor: pointer; margin-top: 40px; transition: 0.3s; }
+        .btn-submit:hover { background: #4338ca; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3); }
+        
+        #result-summary { margin-top: 30px; padding: 25px; border-radius: 15px; text-align: center; font-size: 1.5em; font-weight: bold; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>MINI-TEST: UNIT 14 VOCABULARY & PAST SIMPLE</h1>
+    <p style="text-align: center; color: #64748b; font-weight: bold;">Teacher: Farra Thuỷ | Time: 30 minutes</p>
+    
+    <img src="https://github.com/anhnleduzest-hue/english-test/blob/main/image.png?raw=true" class="main-banner" alt="Test Banner">
+
+    <div style="background: #eef2ff; padding: 20px; border-radius: 15px; margin-bottom: 30px; border: 1px solid #c7d2fe;">
+        <label><b>Student Name:</b></label>
+        <input type="text" id="studentName" style="width: 250px; border-bottom: 2px solid #4f46e5;" placeholder="Enter your name...">
+    </div>
+
+    <form id="quizForm">
+        <div class="section">
+            <h3>I. VOCABULARY (Multiple Choice)</h3>
+            
+            <div class="question" data-type="radio" data-ans="B">
+                1. The soccer _______ gets very excited when his team scores a goal.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v1" value="A"> A. poet</label>
+                    <label class="option-item"><input type="radio" name="v1" value="B"> B. coach</label>
+                    <label class="option-item"><input type="radio" name="v1" value="C"> C. novel</label>
+                    <label class="option-item"><input type="radio" name="v1" value="D"> D. sheet</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="A">
+                2. Can you give me a _______ of the man you saw at the bank?
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v2" value="A"> A. description</label>
+                    <label class="option-item"><input type="radio" name="v2" value="B"> B. technology</label>
+                    <label class="option-item"><input type="radio" name="v2" value="C"> C. limit</label>
+                    <label class="option-item"><input type="radio" name="v2" value="D"> D. scene</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="C">
+                3. The _______ route to the station is much faster than the bus.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v3" value="A"> A. silly</label>
+                    <label class="option-item"><input type="radio" name="v3" value="B"> B. magical</label>
+                    <label class="option-item"><input type="radio" name="v3" value="C"> C. direct</label>
+                    <label class="option-item"><input type="radio" name="v3" value="D"> D. local</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="B">
+                4. I need a single _______ of paper to write my homework.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v4" value="A"> A. store</label>
+                    <label class="option-item"><input type="radio" name="v4" value="B"> B. sheet</label>
+                    <label class="option-item"><input type="radio" name="v4" value="C"> C. mail</label>
+                    <label class="option-item"><input type="radio" name="v4" value="D"> D. outline</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="A">
+                5. William Shakespeare is one of the world's most famous _______.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v5" value="A"> A. poets</label>
+                    <label class="option-item"><input type="radio" name="v5" value="B"> B. technologies</label>
+                    <label class="option-item"><input type="radio" name="v5" value="C"> C. exams</label>
+                    <label class="option-item"><input type="radio" name="v5" value="D"> D. controls</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="D">
+                6. The night sky looked _______ with all the colorful fireworks.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v6" value="A"> A. silly</label>
+                    <label class="option-item"><input type="radio" name="v6" value="B"> B. direct</label>
+                    <label class="option-item"><input type="radio" name="v6" value="C"> C. local</label>
+                    <label class="option-item"><input type="radio" name="v6" value="D"> D. magical</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="B">
+                7. My mother put a _______ on how much time I can use the phone.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v7" value="A"> A. mail</label>
+                    <label class="option-item"><input type="radio" name="v7" value="B"> B. limit</label>
+                    <label class="option-item"><input type="radio" name="v7" value="C"> C. coach</label>
+                    <label class="option-item"><input type="radio" name="v7" value="D"> D. novel</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="C">
+                8. Use the remote to _______ the volume of the TV.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v8" value="A"> A. print</label>
+                    <label class="option-item"><input type="radio" name="v8" value="B"> B. suffer</label>
+                    <label class="option-item"><input type="radio" name="v8" value="C"> C. control</label>
+                    <label class="option-item"><input type="radio" name="v8" value="D"> D. direct</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="B">
+                9. I made a _______ mistake and dropped my favorite vase.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v9" value="A"> A. magical</label>
+                    <label class="option-item"><input type="radio" name="v9" value="B"> B. silly</label>
+                    <label class="option-item"><input type="radio" name="v9" value="C"> C. direct</label>
+                    <label class="option-item"><input type="radio" name="v9" value="D"> D. local</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="A">
+                10. Modern _______ like laptops has changed the way we study.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v10" value="A"> A. technology</label>
+                    <label class="option-item"><input type="radio" name="v10" value="B"> B. description</label>
+                    <label class="option-item"><input type="radio" name="v10" value="C"> C. scene</label>
+                    <label class="option-item"><input type="radio" name="v10" value="D"> D. outline</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="B">
+                11. He wrote a long _______ about his adventures in ancient China.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v11" value="A"> A. mail</label>
+                    <label class="option-item"><input type="radio" name="v11" value="B"> B. novel</label>
+                    <label class="option-item"><input type="radio" name="v11" value="C"> C. exam</label>
+                    <label class="option-item"><input type="radio" name="v11" value="D"> D. sheet</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="A">
+                12. Before writing the essay, Lee made an _______ of his main ideas.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v12" value="A"> A. outline</label>
+                    <label class="option-item"><input type="radio" name="v12" value="B"> B. example</label>
+                    <label class="option-item"><input type="radio" name="v12" value="C"> C. store</label>
+                    <label class="option-item"><input type="radio" name="v12" value="D"> D. coach</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="C">
+                13. I buy fresh vegetables at the _______ market in my neighborhood.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v13" value="A"> A. direct</label>
+                    <label class="option-item"><input type="radio" name="v13" value="B"> B. magical</label>
+                    <label class="option-item"><input type="radio" name="v13" value="C"> C. local</label>
+                    <label class="option-item"><input type="radio" name="v13" value="D"> D. silly</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="B">
+                14. A movie is made up of many different _______ filmed in various locations.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v14" value="A"> A. sheets</label>
+                    <label class="option-item"><input type="radio" name="v14" value="B"> B. scenes</label>
+                    <label class="option-item"><input type="radio" name="v14" value="C"> C. exams</label>
+                    <label class="option-item"><input type="radio" name="v14" value="D"> D. emails</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+
+            <div class="question" data-type="radio" data-ans="C">
+                15. Please _______ your name clearly on the top of the test paper.
+                <div class="options-grid">
+                    <label class="option-item"><input type="radio" name="v15" value="A"> A. suffer</label>
+                    <label class="option-item"><input type="radio" name="v15" value="B"> B. control</label>
+                    <label class="option-item"><input type="radio" name="v15" value="C"> C. print</label>
+                    <label class="option-item"><input type="radio" name="v15" value="D"> D. limit</label>
+                </div>
+                <span class="feedback"></span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>II. GRAMMAR: PAST SIMPLE</h3>
+            <div class="question">16. The students (be) <input type="text" data-ans="were"> very happy yesterday. <span class="feedback"></span></div>
+            <div class="question">17. Lee (not be) <input type="text" data-ans="was not"> at the library last Saturday. <span class="feedback"></span></div>
+            <div class="question">18. <input type="text" data-ans="Was" style="width: 60px;"> the weather terrible when you reached the mountain? <span class="feedback"></span></div>
+            <div class="question">19. We (sit) <input type="text" data-ans="sat"> together to start our group project. <span class="feedback"></span></div>
+            <div class="question">20. The scientist (create) <input type="text" data-ans="created"> a special robot for the fair. <span class="feedback"></span></div>
+            <div class="question">21. Jack (write) <input type="text" data-ans="wrote"> a long report for his science class. <span class="feedback"></span></div>
+            <div class="question">22. Yesterday, I (see) <input type="text" data-ans="saw"> a strange object in the sky. <span class="feedback"></span></div>
+            <div class="question">23. They (not/walk) <input type="text" data-ans="did not walk"> through the dark forest. <span class="feedback"></span></div>
+            <div class="question">24. My friend (tell) <input type="text" data-ans="told"> me a very interesting secret. <span class="feedback"></span></div>
+            <div class="question">25. <input type="text" data-ans="Did" style="width: 60px;"> you (find) <input type="text" data-ans="find"> any clues? <span class="feedback"></span></div>
+            <div class="question">26. The cat (not/work) <input type="text" data-ans="did not work"> during the day. <span class="feedback"></span></div>
+            <div class="question">27. Where <input type="text" data-ans="did" style="width: 60px;"> you (go) <input type="text" data-ans="go"> for your vacation? <span class="feedback"></span></div>
+            <div class="question">28. She (spend) <input type="text" data-ans="spent"> all day preparing for the big exam. <span class="feedback"></span></div>
+            <div class="question">29. I (not/have) <input type="text" data-ans="did not have"> enough money to buy the dictionary. <span class="feedback"></span></div>
+            <div class="question">30. The thief (steal) <input type="text" data-ans="stole"> the gold coins from the store. <span class="feedback"></span></div>
+        </div>
+
+        <div class="section">
+            <h3>III. ERROR CORRECTION (Write correct sentence)</h3>
+            <div class="question">31. The students was in the laboratory two hours ago.<br>=> <input type="text" data-ans="The students were in the laboratory two hours ago" style="width: 90%;" placeholder="Correct sentence..."> <span class="feedback"></span></div>
+            <div class="question">32. Did Lee wrote a long poem for his mother?<br>=> <input type="text" data-ans="Did Lee write a long poem for his mother" style="width: 90%;"> <span class="feedback"></span></div>
+            <div class="question">33. I no stayed at a nice hotel when I visited Hanoi.<br>=> <input type="text" data-ans="I did not stay at a nice hotel when I visited Hanoi" style="width: 90%;"> <span class="feedback"></span></div>
+            <div class="question">34. The weather is very bad yesterday morning.<br>=> <input type="text" data-ans="The weather was very bad yesterday morning" style="width: 90%;"> <span class="feedback"></span></div>
+            <div class="question">35. How does the artist make a profit last month?<br>=> <input type="text" data-ans="How did the artist make a profit last month" style="width: 90%;"> <span class="feedback"></span></div>
+        </div>
+
+        <div class="section">
+            <h3>IV. REWRITE SENTENCES</h3>
+            <div class="question">36. Sarah controlled the robot with her phone. (Ask question for "with her phone")<br>=> <input type="text" data-ans="How did Sarah control the robot" style="width: 90%;">? <span class="feedback"></span></div>
+            <div class="question">37. The alien was cruel. (Negative form)<br>=> <input type="text" data-ans="The alien was not cruel" style="width: 90%;">. <span class="feedback"></span></div>
+            <div class="question">38. they / arrive / at / village / at / 4:00 / ?<br>=> <input type="text" data-ans="Did they arrive at the village at 4:00" style="width: 90%;">? <span class="feedback"></span></div>
+            <div class="question">39. She likes the magical story. (Past Simple)<br>=> <input type="text" data-ans="She liked the magical story" style="width: 90%;">. <span class="feedback"></span></div>
+            <div class="question">40. Tom went to the park on Saturday. (Question with "When")<br>=> <input type="text" data-ans="When did Tom go to the park" style="width: 90%;">? <span class="feedback"></span></div>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="submitQuiz()">NỘP BÀI VÀ XEM ĐIỂM</button>
+    </form>
+    <div id="result-summary"></div>
+</div>
+
+<script>
+    function submitQuiz() {
+        const name = document.getElementById('studentName').value;
+        if (!name) { alert("Anh ơi, điền tên cho các em đã!"); return; }
+
+        let score = 0, total = 0, wrongList = [];
+
+        // Chấm Trắc nghiệm
+        document.querySelectorAll('.question[data-type="radio"]').forEach(q => {
+            total++;
+            const correctAns = q.getAttribute('data-ans');
+            const selected = q.querySelector('input[type="radio"]:checked');
+            const feedback = q.querySelector('.feedback');
+            if (selected && selected.value === correctAns) {
+                score++; feedback.innerHTML = " ✓"; feedback.className = "feedback correct";
+            } else {
+                feedback.innerHTML = ` ✗ (${correctAns})`; feedback.className = "feedback wrong";
+                wrongList.push(`Câu ${total}: ${selected ? selected.value : 'Bỏ trống'}`);
+            }
+        });
+
+        // Chấm Điền từ & Viết lại câu
+        document.querySelectorAll('input[type="text"]:not(#studentName)').forEach((input, i) => {
+            if(input.getAttribute('data-ans')) {
+                total++;
+                const userAns = input.value.trim().toLowerCase().replace(/[.?]$/, "");
+                const correctAns = input.getAttribute('data-ans').toLowerCase().replace(/[.?]$/, "");
+                const feedback = input.nextElementSibling;
+                if (userAns === correctAns) {
+                    score++; feedback.innerHTML = " ✓"; feedback.className = "feedback correct";
+                } else {
+                    feedback.innerHTML = ` ✗ (${input.getAttribute('data-ans')})`; feedback.className = "feedback wrong";
+                    wrongList.push(`Phần viết ${i+1}: ${userAns || 'Trống'}`);
+                }
+            }
+        });
+
+        const res = document.getElementById('result-summary');
+        res.style.display = "block";
+        res.innerHTML = `Kết quả của ${name}: ${score}/${total} câu đúng!`;
+        res.style.backgroundColor = score > total/2 ? "#dcfce7" : "#fee2e2";
+
+        sendToSheet(name, `${score}/${total}`, wrongList.join(", "));
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function sendToSheet(n, s, w) {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz0MYQWO8wEheSqRWOvyIXaEfPHAQxQLnaw930_oHM4duktq-2B3gsEvkwgLZ2C1GqW/exec';
+        const p = new URLSearchParams({ name: n, score: s, wrongs: w, time: new Date().toLocaleString() });
+        fetch(scriptURL, { method: 'POST', body: p, mode: 'no-cors' });
+    }
+</script>
+</body>
+</html>
