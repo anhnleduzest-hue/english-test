@@ -262,57 +262,71 @@
     <div id="result-summary"></div>
 </div>
 
-<script>
-    function submitQuiz() {
-        const name = document.getElementById('studentName').value;
-        if (!name) { alert("Anh ơi, điền tên cho các em đã!"); return; }
+function submitQuiz() {
+    const name = document.getElementById('studentName').value;
+    if (!name) { alert("Anh ơi, điền tên cho các em đã!"); return; }
 
-        let score = 0, total = 0, wrongList = [];
+    let score = 0, total = 0, wrongList = [];
 
-        // Chấm Trắc nghiệm
-        document.querySelectorAll('.question[data-type="radio"]').forEach(q => {
+    // Hàm chuẩn hóa văn bản để chấp nhận cả viết tắt và viết đầy đủ
+    function normalizeText(text) {
+        return text.trim().toLowerCase()
+            .replace(/n't/g, " not")
+            .replace(/'m/g, " am")
+            .replace(/'s/g, " is")
+            .replace(/'re/g, " are")
+            .replace(/[.?]$/, ""); // Loại bỏ dấu chấm/hỏi ở cuối câu
+    }
+
+    // 1. Chấm Trắc nghiệm (Radio)
+    document.querySelectorAll('.question[data-type="radio"]').forEach(q => {
+        total++;
+        const correctAns = q.getAttribute('data-ans');
+        const selected = q.querySelector('input[type="radio"]:checked');
+        const feedback = q.querySelector('.feedback');
+        
+        if (selected && selected.value === correctAns) {
+            score++;
+            feedback.innerHTML = " ✓";
+            feedback.className = "feedback correct";
+        } else {
+            feedback.innerHTML = ` ✗ (${correctAns})`;
+            feedback.className = "feedback wrong";
+            wrongList.push(`Câu ${total}: ${selected ? selected.value : 'Bỏ trống'}`);
+        }
+    });
+
+    // 2. Chấm Điền từ & Viết lại câu (Text)
+    document.querySelectorAll('input[type="text"]:not(#studentName)').forEach((input, i) => {
+        if(input.getAttribute('data-ans')) {
             total++;
-            const correctAns = q.getAttribute('data-ans');
-            const selected = q.querySelector('input[type="radio"]:checked');
-            const feedback = q.querySelector('.feedback');
-            if (selected && selected.value === correctAns) {
-                score++; feedback.innerHTML = " ✓"; feedback.className = "feedback correct";
+            const userAns = normalizeText(input.value);
+            const correctAns = normalizeText(input.getAttribute('data-ans'));
+            const feedback = input.nextElementSibling;
+
+            // So sánh sau khi đã chuẩn hóa
+            if (userAns === correctAns) {
+                score++;
+                feedback.innerHTML = " ✓";
+                feedback.className = "feedback correct";
             } else {
-                feedback.innerHTML = ` ✗ (${correctAns})`; feedback.className = "feedback wrong";
-                wrongList.push(`Câu ${total}: ${selected ? selected.value : 'Bỏ trống'}`);
+                feedback.innerHTML = ` ✗ (${input.getAttribute('data-ans')})`;
+                feedback.className = "feedback wrong";
+                wrongList.push(`Vị trí ${total}: ${input.value || 'Trống'}`);
             }
-        });
+        }
+    });
 
-        // Chấm Điền từ & Viết lại câu
-        document.querySelectorAll('input[type="text"]:not(#studentName)').forEach((input, i) => {
-            if(input.getAttribute('data-ans')) {
-                total++;
-                const userAns = input.value.trim().toLowerCase().replace(/[.?]$/, "");
-                const correctAns = input.getAttribute('data-ans').toLowerCase().replace(/[.?]$/, "");
-                const feedback = input.nextElementSibling;
-                if (userAns === correctAns) {
-                    score++; feedback.innerHTML = " ✓"; feedback.className = "feedback correct";
-                } else {
-                    feedback.innerHTML = ` ✗ (${input.getAttribute('data-ans')})`; feedback.className = "feedback wrong";
-                    wrongList.push(`Phần viết ${i+1}: ${userAns || 'Trống'}`);
-                }
-            }
-        });
+    // Hiển thị kết quả
+    const res = document.getElementById('result-summary');
+    res.style.display = "block";
+    res.innerHTML = `Kết quả của ${name}: ${score}/${total} câu đúng!`;
+    res.style.backgroundColor = score > total/2 ? "#dcfce7" : "#fee2e2";
 
-        const res = document.getElementById('result-summary');
-        res.style.display = "block";
-        res.innerHTML = `Kết quả của ${name}: ${score}/${total} câu đúng!`;
-        res.style.backgroundColor = score > total/2 ? "#dcfce7" : "#fee2e2";
-
-        sendToSheet(name, `${score}/${total}`, wrongList.join(", "));
-        window.scrollTo(0, document.body.scrollHeight);
-    }
-
-    function sendToSheet(n, s, w) {
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbz0MYQWO8wEheSqRWOvyIXaEfPHAQxQLnaw930_oHM4duktq-2B3gsEvkwgLZ2C1GqW/exec';
-        const p = new URLSearchParams({ name: n, score: s, wrongs: w, time: new Date().toLocaleString() });
-        fetch(scriptURL, { method: 'POST', body: p, mode: 'no-cors' });
-    }
+    // Gửi dữ liệu về Google Sheets
+    sendToSheet(name, `${score}/${total}`, wrongList.join(", "));
+    window.scrollTo(0, document.body.scrollHeight);
+}
 </script>
 </body>
 </html>
